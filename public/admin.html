@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f"><meta name="robots" content="noindex, nofollow"><title>Administration — SIPOKTECK</title><link rel="stylesheet" href="/admin.css"><script src="/admin.js" defer></script></head>
+<body>
+<header class="admin-header"><a class="admin-brand" href="/">SIPOKTECK <span>/ ADMIN</span></a><a href="/" class="back-link">← Voir le portfolio</a></header>
+<main class="admin-main">
+  <section id="login-view" class="login-card">
+    <div class="eyebrow">ESPACE PRIVÉ</div><h1>Administration</h1><p>Connectez-vous pour gérer les projets et les messages du portfolio.</p>
+    <form id="login-form"><label for="login-email">Email administrateur</label><input id="login-email" name="email" type="email" required autocomplete="username" placeholder="admin@exemple.com"><label for="login-password">Mot de passe</label><input id="login-password" name="password" type="password" required autocomplete="current-password" placeholder="Votre mot de passe"><button class="button primary" type="submit">Se connecter ↗</button><p class="feedback" id="login-feedback" role="status"></p></form>
+    <a class="back-home" href="/">← Retour au site public</a>
+  </section>
+  <section id="dashboard" hidden>
+    <div class="dashboard-heading"><div><div class="eyebrow">TABLEAU DE BORD</div><h1>Bonjour, <span id="admin-name">Admin</span></h1><p>Les modifications sont enregistrées dans PostgreSQL.</p></div><button class="button ghost" id="logout-button">Déconnexion ↗</button></div>
+    <div class="tabs" role="tablist"><button class="tab active" data-tab="projects" role="tab" aria-selected="true">Projets</button><button class="tab" data-tab="messages" role="tab" aria-selected="false">Messages reçus</button></div>
+    <section id="projects-panel" class="panel">
+      <div class="panel-heading"><div><h2>Gestion des projets</h2><p>Ajouter, modifier ou retirer un projet public.</p></div><button class="button primary" id="new-project">+ Nouveau projet</button></div>
+      <form id="project-form" class="editor" hidden><input type="hidden" name="id"><h3 id="project-form-title">Ajouter un projet</h3><div class="form-grid"><div><label for="p-title">Titre</label><input id="p-title" name="title" required maxlength="120"></div><div><label for="p-category">Catégorie</label><input id="p-category" name="category" required maxlength="80" placeholder="Site vitrine, E-commerce…"></div><div><label for="p-icon">Icône / emoji</label><input id="p-icon" name="icon" maxlength="20" value="💻"></div><div><label for="p-url">Lien externe (facultatif)</label><input id="p-url" name="url" type="url" maxlength="500" placeholder="https://..."></div><div class="full"><label for="p-description">Description</label><textarea id="p-description" name="description" required minlength="10" maxlength="2000" rows="3"></textarea></div></div><div class="checks"><label><input type="checkbox" name="featured"> Mettre à la une</label><label><input type="checkbox" name="demo" checked> Projet de démonstration</label></div><div class="editor-actions"><button type="submit" class="button primary">Enregistrer le projet</button><button type="button" class="button ghost" id="cancel-edit">Annuler</button></div><p class="feedback" id="project-feedback" role="status"></p></form>
+      <div id="projects-list" class="admin-list"><p class="muted">Chargement…</p></div>
+    </section>
+    <section id="messages-panel" class="panel" hidden><div class="panel-heading"><div><h2>Boîte de réception</h2><p>Les 100 messages les plus récents au maximum.</p></div><button class="button ghost" id="refresh-messages">Actualiser</button></div><div id="messages-list" class="admin-list"><p class="muted">Chargement…</p></div></section>
+  </section>
+</main>
+<footer class="admin-footer">SIPOKTECK · Administration sécurisée</footer>
+</body></html>
